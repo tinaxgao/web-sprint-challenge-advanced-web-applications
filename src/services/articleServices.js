@@ -2,9 +2,9 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useState, useEffect } from "react";
 
 const articleService = () => {
-  const [articles, setArticles] = useState([]);
+  const [ articles, setArticles ] = useState([]);
 
-//   useEffect(() => {
+  useEffect(() => {
     axiosWithAuth()
       .get("/articles")
       .then((resp) => {
@@ -13,7 +13,7 @@ const articleService = () => {
       .catch((err) => {
         console.log(err);
       });
-//   }, []);
+  }, []);
 
   return [articles, setArticles];
 };
