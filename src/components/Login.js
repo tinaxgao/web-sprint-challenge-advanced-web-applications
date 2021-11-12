@@ -20,7 +20,7 @@ const Login = () => {
     axios
       .post("http://localhost:5000/api/login", credentials)
       .then((resp) => {
-        localStorage.setItem("token", resp.data.payload);
+        localStorage.setItem("token", resp.data.token);
         history.push("/view");
       })
       .catch((err) => {

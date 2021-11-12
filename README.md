@@ -49,10 +49,10 @@ In this project, you will demonstrate your mastery of these skills by creating *
 
 ### Request Authentication
 > *Complete the requests needed to execute all CRUD functions.*
-* [ ] Build a `axiosWithAuth` module within the utils folder to create an instance of axios with the authentication header.
-* [ ] Complete the `services/articleService.js` module. It should use make an authenticated call to retrieve and return all articles from the server.
+* [x] Build a `axiosWithAuth` module within the utils folder to create an instance of axios with the authentication header.
+* [x] Complete the `services/articleService.js` module. It should use make an authenticated call to retrieve and return all articles from the server.
 
-* [ ] In `View.js`, when the component mounts, use `articleService` to make an http request and add all articles to state.
+* [x] In `View.js`, when the component mounts, use `articleService` to make an http request and add all articles to state.
 
 * [ ] In `View.js`, complete `handleDelete` so that a http request is made that deletes the article with the included id. After successfully deleting the article on the api, update local state to reflect these changes.
 
