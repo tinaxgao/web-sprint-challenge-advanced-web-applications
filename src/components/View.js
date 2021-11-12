@@ -12,7 +12,6 @@ const View = (props) => {
   const [editId, setEditId] = useState();
 
   const handleDelete = (id) => {
-    console.log("id", id);
     axiosWithAuth()
       .delete(`/articles/${id}`)
       .then((resp) => {
