@@ -1,10 +1,9 @@
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const articleService = () => {
   const [ articles, setArticles ] = useState([]);
 
-  useEffect(() => {
     axiosWithAuth()
       .get("/articles")
       .then((resp) => {
@@ -12,7 +11,6 @@ const articleService = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
   }, []);
 
   return [articles, setArticles];

@@ -5,7 +5,6 @@ import userEvent from "@testing-library/user-event";
 
 import Article from "./Article";
 import { render, screen } from "@testing-library/react";
-import axiosWithAuth from "../utils/axiosWithAuth";
 
 const articletest = {
   id: "testid",
@@ -30,8 +29,6 @@ test("renders component without errors", () => {
     <Article
       key={articletest.id}
       article={articletest}
-      handleDelete={null}
-      handleEditSelect={null}
     />
   );
 });
@@ -41,8 +38,6 @@ test("renders headline, author from the article when passed in through props", (
     <Article
       key={articletest.id}
       article={articletest}
-      handleDelete={null}
-      handleEditSelect={null}
     />
   );
 
@@ -58,8 +53,6 @@ test('renders "Associated Press" when no author is given', () => {
     <Article
       key={articleNoAuth.id}
       article={articleNoAuth}
-      handleDelete={null}
-      handleEditSelect={null}
     />
   );
 
@@ -69,32 +62,20 @@ test('renders "Associated Press" when no author is given', () => {
 });
 
 test("executes handleDelete when the delete button is pressed", () => {
-  const handleDelete = jest.fn((id) => {
-    axiosWithAuth()
-      .delete(`/articles/${id}`)
-      .then((resp) => {
-        setArticles(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  const handleDelete = jest.fn();
 
   render(
     <Article
       key={articletest.id}
       article={articletest}
       handleDelete={handleDelete}
-      handleEditSelect={null}
     />
   );
 
   const button = screen.getByTestId("deleteButton");
-  const testedHeadline = screen.queryByText(/testheadline/i);
   userEvent.click(button);
 
-  expect(handleDelete).toBeCalled();
-  expect(testedHeadline).not.toBeInTheDocument();
+  expect(handleDelete).toHaveBeenCalled();
 });
 
 //Task List:
