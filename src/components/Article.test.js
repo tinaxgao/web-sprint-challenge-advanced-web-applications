@@ -56,7 +56,7 @@ test('renders "Associated Press" when no author is given', () => {
     />
   );
 
-  const defaultAuthor = screen.getByText(/Associated Press/i);
+  const defaultAuthor = screen.queryByText(/Associated Press/i);
   expect(defaultAuthor).toBeInTheDocument();
 });
 
