@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
@@ -7,9 +7,15 @@ import articleService from "../services/articleServices";
 import EditForm from "./EditForm";
 
 const View = (props) => {
-  const [articles, setArticles] = articleService([]);
+  const [articles, setArticles] = useState([]);
   const [editing, setEditing] = useState(false);
   const [editId, setEditId] = useState();
+
+  useEffect(()=> {
+    articleService().then(resp => {
+      setArticles(resp)
+    });
+  },[]);
 
   const handleDelete = (id) => {
     axiosWithAuth()
