@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import View from './View';
 
 import articleService from './../services/articleServices'
-const mocked = jest.fn(articleService);
+jest.mock('./../services/articleServices');
 
 test("renders zero articles without errors", async () => {
     articleService.mockResolvedValue({
