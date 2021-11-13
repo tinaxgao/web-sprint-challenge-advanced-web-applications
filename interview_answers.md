@@ -8,6 +8,10 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 > Encryption, private routes, 
 
 3. Describe how web servers work.
-> 
+> a physical computer & the software that it runs which stores and serves content to a web browser
 
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+> Create - post
+Read - get
+Update - put
+Delete - delete
