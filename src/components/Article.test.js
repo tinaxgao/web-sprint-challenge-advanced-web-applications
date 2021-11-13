@@ -57,7 +57,6 @@ test('renders "Associated Press" when no author is given', () => {
   );
 
   const defaultAuthor = screen.getByText(/Associated Press/i);
-
   expect(defaultAuthor).toBeInTheDocument();
 });
 
@@ -74,7 +73,6 @@ test("executes handleDelete when the delete button is pressed", () => {
 
   const button = screen.getByTestId("deleteButton");
   userEvent.click(button);
-
   expect(handleDelete).toHaveBeenCalled();
 });
 
