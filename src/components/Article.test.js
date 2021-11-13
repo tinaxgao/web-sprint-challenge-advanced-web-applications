@@ -26,10 +26,7 @@ const articleNoAuth = {
 
 test("renders component without errors", () => {
   render(
-    <Article
-      key={articletest.id}
-      article={articletest}
-    />
+    <Article />
   );
 });
 
